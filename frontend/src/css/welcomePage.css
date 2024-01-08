@@ -1,0 +1,16 @@
+.center-in-page {
+    background-color: #fff;
+    color: #000;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  .welcome-page h1 {
+    font-weight: bold;
+  }
+  
+  .welcome-page .lead {
+    font-size: 1.25rem;
+  }
+  

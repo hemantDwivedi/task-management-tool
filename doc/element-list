@@ -1,0 +1,11 @@
+com.dec.taskmanagementsystem
+com.dec.taskmanagementsystem.config
+com.dec.taskmanagementsystem.controller
+com.dec.taskmanagementsystem.dto
+com.dec.taskmanagementsystem.entity
+com.dec.taskmanagementsystem.exception
+com.dec.taskmanagementsystem.initialzer
+com.dec.taskmanagementsystem.repository
+com.dec.taskmanagementsystem.security
+com.dec.taskmanagementsystem.service
+com.dec.taskmanagementsystem.service.impl
