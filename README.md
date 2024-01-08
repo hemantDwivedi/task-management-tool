@@ -25,7 +25,8 @@ The Task management system is a web tool, that helps you to manage your tasks.
 ## Installation ⚙️
 
 To get started with the task management system, follow these steps:
-You can also watch video for project setup ➡️ [Video Link]
+You can also watch video for project setup 
+#### Project Setup tutorial ➡️ https://www.loom.com/share/e95d25ae2ccc48d797b8f31cb49ccd47?sid=1c5302b3-9805-410a-959b-b876cec24f38
 
 #### 1. Database setup(for MYSQL)
 - Open 'MySQL Workbench'.
@@ -54,6 +55,15 @@ Backend setup:
 
 You can also check documentation for backend.
 - You need to open ```index.html```, which can find in ```./task-management-system/doc/``` directory.
+
+#### Screenshots
+View All Tasks ![Screenshot (116)](https://github.com/hemantDwivedi/tms/assets/96649329/0636deda-f7d4-4834-ad6c-d78ec38e20bc)
+Add Task ![Screenshot (117)](https://github.com/hemantDwivedi/tms/assets/96649329/8a6d958c-d966-4026-a0bd-85d810abfbeb)
+Update Task ![Screenshot (118)](https://github.com/hemantDwivedi/tms/assets/96649329/4f0a508a-9f04-4b26-9655-0c2eb1829715)
+Mark Task as done ![Screenshot (119)](https://github.com/hemantDwivedi/tms/assets/96649329/79f45b6f-950d-4870-a541-b1cba98ebb40)
+Delete Task ![Screenshot (120)](https://github.com/hemantDwivedi/tms/assets/96649329/a4ea930c-53a4-4506-b11f-3d9818e59373)
+
+
 
 ## Contact
 
