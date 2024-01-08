@@ -37,8 +37,8 @@ CREATE DATABASE tms_db;
 ```
 #### 2. Open your terminal and execute these commands:
 ```bash
-git clone https://github.com/hemantDwivedi/password-generator-tool.git
-cd task-management-system
+git clone https://github.com/hemantDwivedi/tms.git
+cd tms
 
 ```
 Backend setup:
