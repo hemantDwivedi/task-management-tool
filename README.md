@@ -69,7 +69,8 @@ Delete Task ![Screenshot (120)](https://github.com/hemantDwivedi/tms/assets/9664
 
 For any inquiries or feedback, feel free to reach out:
 
-- LinkedIn: [Hemant Dwivedi](https://www.linkedin.com/in/hemant-dwivedi-developer/)
+- **LinkedIn:** [Hemant Dwivedi](https://www.linkedin.com/in/hemant-dwivedi-developer/)
+- **Twitter:** [Hemant](https://twitter.com/ordinaryhemant)
 
 ## Acknowledgments
 
