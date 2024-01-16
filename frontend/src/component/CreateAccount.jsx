@@ -1,31 +1,31 @@
-import React, { useState } from "react"
+import { useState } from "react"
 import { Container, Row, Col } from 'react-bootstrap';
-import { loginApi, saveLoggedUser, storeBasicAuth } from "../service/AuthApiService"
-import { useNavigate } from "react-router-dom"
+import { registerApi } from "../service/AuthApiService"
+import { useNavigate } from 'react-router-dom'
 
-const LoginComponent = () => {
+const CreateAccount = () => {
 
     const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate()
     const [errors, setErrors] = useState({
         username: '',
+        email: '',
         password: ''
     })
 
-    async function handleLoginForm(event) {
+
+    function handleRegistrationForm(event) {
         event.preventDefault()
 
         if (validateForm()) {
+            const register = { username, email, password }
 
-            await loginApi(username, password)
+            registerApi(register)
                 .then(response => {
                     console.log(response.data);
-                    const basicAuth = 'Basic ' + btoa(username + ':' + password)
-                    const role = response.data.role
-                    storeBasicAuth(basicAuth)
-                    saveLoggedUser(response.data.id, username, role)
-                    navigate(`/tasks`)
+                    navigate('/login')
                 })
                 .catch(error => console.error(error))
         }
@@ -44,12 +44,20 @@ const LoginComponent = () => {
             valid = false
         }
 
+        if (email.trim()) {
+            errorsCopy.email = ''
+        } else {
+            errorsCopy.email = 'email required'
+            valid = false
+        }
+
         if (password.trim()) {
             errorsCopy.password = ''
         } else {
             errorsCopy.password = 'password required'
             valid = false
         }
+
         setErrors(errorsCopy)
 
         return valid
@@ -59,8 +67,8 @@ const LoginComponent = () => {
         <div className="center-in-page">
             <Container>
                 <Row className="justify-content-center align-items-center">
-                    <Col lg={5}>
-                        <form className="bg-light shadow-lg p-4">
+                    <Col lg={7}>
+                        <form className="shadow-lg p-5 rounded-3">
                             <div className="d-flex gap-2">
                                 <div className="form-group mb-2">
                                     <input
@@ -72,6 +80,18 @@ const LoginComponent = () => {
                                         onChange={(event) => setUsername(event.target.value)}
                                     />
                                     {errors.username && <div className="invalid-feedback">{errors.username}</div>}
+                                </div>
+                                <div className="form-group mb-2">
+                                    <input
+                                        type="text"
+                                        name="email"
+                                        className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                                        placeholder="Email"
+                                        value={email}
+                                        onChange={(event) => setEmail(event.target.value)}
+                                    />
+                                    {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+
                                 </div>
                                 <div className="form-group">
                                     <input
@@ -86,7 +106,7 @@ const LoginComponent = () => {
                                 </div>
                             </div>
                             <div className="form-group">
-                                <button className="btn btn-dark mt-3" onClick={(event) => handleLoginForm(event)}>Login</button>
+                                <button className="btn btn-dark mt-3" onClick={(event) => handleRegistrationForm(event)}>Create</button>
                             </div>
                         </form>
                     </Col>
@@ -96,4 +116,4 @@ const LoginComponent = () => {
     )
 }
 
-export default LoginComponent
+export default CreateAccount

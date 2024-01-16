@@ -9,7 +9,7 @@ const WelcomePage = () => {
         <Container>
           <Row className="justify-content-center align-items-center text-center">
             <Col lg={8}>
-              <h1 className="display-4">Welcome to <span className="text-primary">Task Manager</span></h1>
+              <h1 className="display-4">Welcome to <span>Task Manager</span></h1>
               <p className="lead mb-4">
                 Experience a smarter way to manage tasks. Boost productivity, collaborate seamlessly, and accomplish more in less time.
               </p>

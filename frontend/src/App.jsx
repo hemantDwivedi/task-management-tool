@@ -1,7 +1,6 @@
 import HeaderComponent from './component/HeaderComponent'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import TodoComponent from './component/AddTaskComponent'
-import RegisterComponent from './component/RegisterComponent'
+import CreateAccount from './component/CreateAccount'
 import LoginComponent from './component/LoginComponent'
 import { getLoggedInUserId, isUserLoggedIn } from './service/AuthApiService'
 import WelcomePage from './component/Welcome'
@@ -41,7 +40,7 @@ function App() {
           <AddTaskComponent userId={activeUserId} />
         </AuthenticatedRoute>
         } />
-        <Route path='/register' element={<RegisterComponent />} />
+        <Route path='/create-account' element={<CreateAccount />} />
         <Route path='/login' element={<LoginComponent />} />
       </Routes>
       </BrowserRouter>
