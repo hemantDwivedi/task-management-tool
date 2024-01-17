@@ -13,12 +13,6 @@ import java.util.List;
 import java.util.Set;
 
 
-/**
- * The User class contains user's details.
- * @author Hemant
- * @see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/" target="_blank">Java Docs</a>
- */
-
 @Entity
 @Table(name = "users")
 @Getter

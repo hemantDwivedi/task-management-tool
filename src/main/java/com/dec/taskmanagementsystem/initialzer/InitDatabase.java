@@ -12,23 +12,12 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * The InitDatabase class add values into user table
- * @author Hemant
- * @see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/" target="_blank">Java Docs</a>
- */
-
 @Slf4j
 @RequiredArgsConstructor
 @Component
 public class InitDatabase implements CommandLineRunner {
     private final UserRepository repository;
     private final PasswordEncoder passwordEncoder;
-
-    /**
-     * A CommandLineRunner method
-     * @param args Command line arguments
-     */
     @Override
     public void run(String... args) {
         List<User> USERS = Arrays.asList(

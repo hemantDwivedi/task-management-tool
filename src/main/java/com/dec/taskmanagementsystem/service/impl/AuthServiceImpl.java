@@ -14,12 +14,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
-/**
- * The AuthServiceImpl class provides an implementation of AuthService Interface methods
- * @author Hemant
- * @see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/" target="_blank">Java Docs</a>
- */
-
 @Service
 @RequiredArgsConstructor
 public class AuthServiceImpl implements AuthService {

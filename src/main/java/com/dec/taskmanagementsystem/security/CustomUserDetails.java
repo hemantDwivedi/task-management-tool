@@ -6,12 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-/**
- * The CustomUserDetails class implements UserDetails Interface
- * @author Hemant
- * @see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/" target="_blank">Java Docs</a>
- */
-
 @Data
 public class CustomUserDetails implements UserDetails {
 

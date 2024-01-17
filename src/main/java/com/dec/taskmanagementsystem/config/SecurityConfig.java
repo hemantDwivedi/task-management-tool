@@ -14,23 +14,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
-/**
- * This class contains necessary spring boot security configures
- * @author Hemant
- * @see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/" target="_blank">Java Docs</a>
- */
-
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
-
-    /**
-     * HttpSecurity configuration
-     * @param httpSecurity object of HttpSecurity
-     * @return SecurityFilterChain
-     * @throws Exception
-     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 
@@ -48,21 +35,11 @@ public class SecurityConfig {
                 .build();
     }
 
-    /**
-     * AuthenticationManager
-     * @param config object of AuthenticationConfiguration
-     * @return AuthenticationManager
-     * @throws Exception
-     */
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
         return config.getAuthenticationManager();
     }
 
-    /**
-     * PasswordEncoder
-     * @return BCryptPasswordEncoder()
-     */
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();

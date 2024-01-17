@@ -12,12 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * The TaskServiceImpl class provides an implementation of TaskService Interface methods
- * @author Hemant
- * @see <a href="https://docs.oracle.com/en/java/javase/17/docs/api/" target="_blank">Java Docs</a>
- */
-
 @Service
 @AllArgsConstructor
 public class TaskServiceImpl implements TaskService {
