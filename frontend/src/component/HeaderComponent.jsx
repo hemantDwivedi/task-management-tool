@@ -13,31 +13,44 @@ const HeaderComponent = () => {
         navigate('/login')
     }
 
+    function isUrlHistory() {
+        let url = window.location.href
+        return url.endsWith("history")
+    }
+
     return (
         <div>
-            <nav className="fixed-top navbar navbar-expand-lg navbar-light" style={{backgroundColor: "#9400FF"}}>
+            <nav className="fixed-top navbar navbar-expand-lg navbar-light">
                 <div className="container">
                     <a className="navbar-brand fw-bold">
                         <img src={logo} alt="logo" width={30} height={30} />
                     </a>
-                    <ul className="navbar-nav">
+                    <ul className="navbar-nav gap-4">
+                        {
+                            isAuth &&
+                            <li className="nav-item">
+                                {
+                                    isUrlHistory() ?  <NavLink className='nav-link' to='/Tasks'>Tasks</NavLink> :  <NavLink className='nav-link' to='/history'>Task History</NavLink>
+                                }
+                            </li>
+                        }
                         {
                             !isAuth &&
 
                             <li className="nav-item">
-                                <NavLink className='nav-link text-light' to='/create-account'>Create account</NavLink>
+                                <NavLink className='nav-link' to='/create-account'>Create account</NavLink>
                             </li>
                         }
                         {
                             !isAuth &&
                             <li className="nav-item">
-                                <NavLink className='nav-link text-light' to='/login'>Login</NavLink>
+                                <NavLink className='nav-link' to='/login'>Login</NavLink>
                             </li>
                         }
                         {
                             isAuth &&
                             <li className="nav-item">
-                                <NavLink className='nav-link text-light' to='/login' onClick={handleLogout}>Logout</NavLink>
+                                <NavLink className='nav-link' to='/login' onClick={handleLogout}>Logout</NavLink>
                             </li>
                         }
                     </ul>

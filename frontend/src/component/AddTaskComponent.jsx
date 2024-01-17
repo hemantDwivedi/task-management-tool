@@ -7,6 +7,7 @@ const AddTaskComponent = ({ userId }) => {
 
     const [task, setTask] = useState('')
     const [completed, setCompleted] = useState(false)
+    const taskCreatedAt = new Date().toDateString()
     const { id } = useParams()
     const navigate = useNavigate()
     const [errors, setErrors] = useState({
@@ -16,21 +17,20 @@ const AddTaskComponent = ({ userId }) => {
     useEffect(() => {
         if (id) {
             retrieveTaskById(id)
-                .then(response => {
-                    console.log(response.data.object);
-                    setTask(response.data.object.task);
+            .then(response => {
+                console.log(response.data.object);
+                setTask(response.data.object.task);
                     setCompleted(response.data.object.completed)
                 })
                 .catch(error => console.log(error))
         }
     }, [id])
-
+    
     function saveTask(event) {
         event.preventDefault()
 
-
         if (validateForm()) {
-            const taskObj = { task, completed }
+            const taskObj = { task, completed, taskCreatedAt }
 
             if (id) {
                 updateTask(taskObj, id)

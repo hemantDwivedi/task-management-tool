@@ -28,6 +28,7 @@ public class Task {
     @NotEmpty(message = "Invalid: task cannot be empty")
     private String task;
     private Boolean completed;
+    private String taskCreatedAt;
     @ManyToOne
     @JsonIgnore
     private User user;

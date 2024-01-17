@@ -6,14 +6,15 @@ import { getLoggedInUserId, isUserLoggedIn } from './service/AuthApiService'
 import WelcomePage from './component/Welcome'
 import TasksComponent from './component/TasksComponent'
 import AddTaskComponent from './component/AddTaskComponent'
+import TaskHistory from './component/TaskHistory'
 
 function App() {
   const activeUserId = getLoggedInUserId()
 
-  function AuthenticatedRoute({children}){
+  function AuthenticatedRoute({ children }) {
     const isAuthenticated = isUserLoggedIn()
 
-    if(isAuthenticated){
+    if (isAuthenticated) {
       return children
     }
     return <Navigate to="/" />
@@ -23,26 +24,31 @@ function App() {
     <>
       <BrowserRouter>
         <HeaderComponent />
-      <Routes>
-        <Route path='/' element={<WelcomePage />} />
-        <Route path='/tasks' element={
-        <AuthenticatedRoute>
-          <TasksComponent userId={activeUserId} />
-        </AuthenticatedRoute>
-        } />
-        <Route path='/add-task' element={
-        <AuthenticatedRoute>
-          <AddTaskComponent userId={activeUserId} />
-        </AuthenticatedRoute>
-        } />
-        <Route path='/update-task/:id' element={
-        <AuthenticatedRoute>
-          <AddTaskComponent userId={activeUserId} />
-        </AuthenticatedRoute>
-        } />
-        <Route path='/create-account' element={<CreateAccount />} />
-        <Route path='/login' element={<LoginComponent />} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<WelcomePage />} />
+          <Route path='/tasks' element={
+            <AuthenticatedRoute>
+              <TasksComponent userId={activeUserId} />
+            </AuthenticatedRoute>
+          } />
+          <Route path='/add-task' element={
+            <AuthenticatedRoute>
+              <AddTaskComponent userId={activeUserId} />
+            </AuthenticatedRoute>
+          } />
+          <Route path='/history' element={
+            <AuthenticatedRoute>
+              <TaskHistory userId={activeUserId} />
+            </AuthenticatedRoute>
+          } />
+          <Route path='/update-task/:id' element={
+            <AuthenticatedRoute>
+              <AddTaskComponent userId={activeUserId} />
+            </AuthenticatedRoute>
+          } />
+          <Route path='/create-account' element={<CreateAccount />} />
+          <Route path='/login' element={<LoginComponent />} />
+        </Routes>
       </BrowserRouter>
     </>
   )

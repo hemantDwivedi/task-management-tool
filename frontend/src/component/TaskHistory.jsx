@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import taskDoneSound from '../assets/done.mp3'
 import '../css/tasks.css'
 
-const TasksComponent = ({ userId }) => {
+const TaskHistory = ({ userId }) => {
 
     const [tasks, setTasks] = useState([])
     const navigate = useNavigate()
@@ -17,6 +17,7 @@ const TasksComponent = ({ userId }) => {
     useEffect(() => {
         allTasks(userId)
     }, [userId])
+
 
     function allTasks(userId) {
         retrieveAllTasks(userId)
@@ -60,7 +61,7 @@ const TasksComponent = ({ userId }) => {
                     {
                         tasks.map(task =>
                             <div key={task.id}>
-                                {!task.completed && <div>
+                                {task.completed && <div>
                                     <div className="d-flex justify-content-end gap-2 mb-2">
                                         <button className="bg-white border-0" onClick={() => updateTask(task.id)}>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#9400FF" className="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -102,4 +103,4 @@ const TasksComponent = ({ userId }) => {
     )
 }
 
-export default TasksComponent
+export default TaskHistory

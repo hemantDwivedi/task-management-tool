@@ -7,7 +7,7 @@ const authApiClient = axios.create({
 
 export const registerApi = (user) => authApiClient.post('/register', user)
 
-export const loginApi = (usernameOrEmail, password) => authApiClient.post('/login', { usernameOrEmail, password })
+export const loginApi = (username, password) => authApiClient.post('/login', { username, password })
 
 export const saveLoggedUser = (userId, username, role) => {
     sessionStorage.setItem("activeUserId", userId)
