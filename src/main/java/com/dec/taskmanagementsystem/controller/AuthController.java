@@ -6,7 +6,6 @@ import com.dec.taskmanagementsystem.entity.User;
 import com.dec.taskmanagementsystem.security.AuthResponse;
 import com.dec.taskmanagementsystem.service.AuthService;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +14,12 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("api/auth")
-@AllArgsConstructor
 public class AuthController {
-    private AuthService authService;
+    private final AuthService authService;
+
+    public AuthController(AuthService authService) {
+        this.authService = authService;
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/register")

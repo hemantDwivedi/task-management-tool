@@ -4,7 +4,6 @@ import com.dec.taskmanagementsystem.dto.ApiResponse;
 import com.dec.taskmanagementsystem.entity.Task;
 import com.dec.taskmanagementsystem.service.TaskService;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +13,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/tasks")
-@AllArgsConstructor
 public class TaskController {
 
-    private TaskService service;
+    private final TaskService service;
+
+    public TaskController(TaskService service) {
+        this.service = service;
+    }
 
     @PostMapping("/user/{id}")
     public ResponseEntity<ApiResponse> createTask(@Valid @RequestBody Task task, @PathVariable("id") Long userId){
